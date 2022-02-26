@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/b4fcb25e6e.js" crossorigin="anonymous"></script>
+    <title>cart</title>
+</head>
+<style>
+    #restriction{
+    display: flex;
+    background-color: rgb(0,129,157);
+    color: white;
+    height: 50px;
+    margin-top: -1%;padding-left: 25%;
+}
+#search-div{
+    /* border: 1px solid red; */
+    height: 50px;
+    margin-top: 2%;
+    display: flex;
+}
+.fas{
+    margin-top: 8%;
+}
+.fa-cart-plus{
+    margin-left: 6%;
+}
+#rack{
+    height: 100%;
+    width: 6%;
+    /* border: 1px solid yellowgreen; */
+}
+#rack-img{
+    height: 100%;
+    width: 100%;
+}
+#search{
+    height: 20px;
+    width: 20px;
+    margin-top: 1%;
+    padding-top: 8%;
+}
+#rack-right{
+    /* align-content: flex-end; */
+    /* border: 2px solid green; */
+    width: 20%;
+    margin-left: 80%;
+    display: flex;
+}
+#sign-in{
+    margin-left: 6%;
+}
+#second-div{
+    display: flex;
+    word-spacing: 3%;
+    margin-top: 2%;
+}
+#div{
+   margin-left: 7%;
+
+}
+#word{
+    text-decoration: none;
+    color: black;
+
+}
+#word::after{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: black;
+}
+#word:hover::after{
+    width: 100%;
+}
+#Clearance{
+    text-decoration: none;
+    color: red;
+}
+#Clearance::after{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: red;
+}
+#Clearance:hover::after{
+    width: 100%;
+}
+#flash{
+    text-decoration: none;
+    color: rgb(89, 171, 219);
+}
+#flash::after{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(89, 171, 219);
+}
+#flash:hover::after{
+    width: 100%;
+}
+
+#srack{
+    margin-left: 35%;
+    width: 35%;
+}
+#h1{
+    font-weight: 700;
+}
+</style>
+<body>
+    <div id="navbar-cointainer"></div>
+     
+</body>
+</html>
+<script type="module">
+    import navbar from "./navbar.js"
+    console.log("navbar",navbar);
+    let navbar_div=document.getElementById("navbar-cointainer")
+    navbar_div.innerHTML=navbar()
+
+</script>

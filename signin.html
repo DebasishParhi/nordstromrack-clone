@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .form-popup {
+    /* display: none; */
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    /* margin-right:40% ; */
+    margin-bottom: 10%;
+    height: 400px;
+    width: 70%;
+    /* background-color: aqua; */
+  }
+  .form-container {
+    max-width: 600px;
+    padding: 10px;
+    background-color: white;
+  }
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+</style>
+<body>
+    <!-- <div onclick="createAccount()">buttom</div> -->
+    <div id="createform">
+        <div class="form-popup" id="myForm">
+            <form onsubmit="signUp()"  class="form-container">
+              <h2>Create Account </h2>
+               
+              <label for="email"><b>Email</b></label>
+              <input id="email" type="text" placeholder="Enter Email" name="" required>
+
+              <label for="name"><b> Name</b></label>
+              <input id="name" type="text" placeholder="Enter user Name" name="" required>
+
+          
+              <label for="psw"><b>Password</b></label>
+              <input id="pass" type="password" placeholder="Enter Password" name="" required>
+
+              <label for="psw"><b>Mobile</b></label>
+              <input id="mobile" type="text" placeholder="Enter number" name="" required>
+            
+          
+              <button id="submit" type="submit" class="btn" style="background-color: rgb(0,129,157);">Create Account</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+    </div>
+</body>
+</html>
+<!-- <script src="./script1.js"></script> -->
+<script>
+  document.querySelector("#submit").addEventListener("click", signUp);
+
+let userdata = JSON.parse(localStorage.getItem("data")) || []
+function signUp(event) {
+    event.preventDefault()
+    var name = document.querySelector("#name").value;
+    var mobile = document.querySelector("#mobile").value;
+    var email = document.querySelector("#email").value;
+    var password = document.querySelector("#pass").value;
+
+    var obj = {
+        name : name,
+        mobile : mobile,
+        email:email,
+        passowrd:password,
+    };
+    let count = 0;
+    for(key in obj){
+        if(obj[key].length == 0){
+            alert("Please fill up all the field")
+            break;
+        }
+        else{
+            count++
+        }
+    }
+    if(count == 4){
+    userdata.push(obj)
+    console.log(userdata)
+    localStorage.setItem("data" , JSON.stringify(userdata));
+    alert("Account creation successfully")
+    // window.location.href = "./login.html"
+    }
+    
+}
+</script>
